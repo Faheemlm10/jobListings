@@ -73,7 +73,7 @@ const Position: React.FC<PositionProps> = ({
       <div className="flex gap-3 mr-8">
         {" "}
         {rightContent.map((value, index) => (
-          <Tabs key={index}>{value}</Tabs>
+          <Tabs closable={false} key={index}>{value}</Tabs>
         ))}
       </div>
     </div>
