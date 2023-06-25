@@ -33,35 +33,35 @@ const Position: React.FC<PositionProps> = ({
   tools,
 }) => {
   const rightContent = [role, level, ...languages, ...tools];
-  console.log(logo);
   return (
-    <div className=" mt-[3rem] w-[70%] h-[10rem] bg-lightGrayishCyanFilterTablets rounded-[1rem] flex justify-between items-center">
-      <div className="flex gap-[2rem]">
-        <div className=" ml-[2rem]">
-          <Image
-            src={require(`${logo}`)}
-            alt="logo"
-            className="h-[6rem] w-[6rem]"
-          />
+    <div className=" relative mt-[3rem] lg:w-[70%] md:w-[85%] md:h-[10rem] h-[15rem] w-[70%] max-[350px]:w-auto max-[350px]:mx-[1rem] max-[350px]:px-[1rem] bg-lightGrayishCyanFilterTablets rounded-[1rem]  flex flex-col justify-evenly  md:flex-row md:justify-between items-center  ">
+      <div className="flex max-md:w-[100%] xl:gap-[2rem] lg:gap-[1rem] md:gap-[0.8rem] items-center max-md:self-start max-md:px-[1rem]">
+        <div className=" max-md:absolute top-[-10%] left-[1rem] lg:ml-[2rem] md:ml-[1rem]  xl:h-[6rem] xl:w-[6rem] lg:h-[5rem] lg:w-[5rem] md:h-[4rem] md:w-[4rem] h-[3.5rem] w-[3.5rem] z-50  ">
+          <Image src={require(`${logo}`)} alt="logo" className="" />
         </div>
-        <div className="flex flex-col justify-between">
-          <div className="flex gap-[1rem]">
-            <div className="text-desaturatedDarkCyan font-bold"> {company}</div>
+        <div className="flex flex-col w-[100%]   max-md:mt-[1rem]">
+          <div className="flex gap-[1rem] max-md:justify-between ">
+            <div className="text-desaturatedDarkCyan font-bold  lg:text-[1rem] md:text-[0.8rem] text-[1rem] ">
+              {" "}
+              {company}
+            </div>
             <div className="flex gap-[1rem] ">
               {isNew && (
-                <div className="font-bold text-[0.8rem]  px-[0.5rem]  rounded-[0.7rem] flex justify-center items-center text-center text-white bg-desaturatedDarkCyan">
+                <div className="font-bold xl:text-[0.8rem]  xl:px-[0.5rem] text-[0.6rem] px-[0.3rem]  rounded-[0.7rem] flex justify-center items-center text-center text-white bg-desaturatedDarkCyan">
                   NEW!
                 </div>
               )}
               {isFeatured && (
-                <div className="flex font-bold  items-center justify-center text-[0.8rem]   px-[.5rem]  rounded-[0.7rem]  text-center text-white bg-black">
+                <div className="flex font-bold  items-center justify-center xl:text-[0.8rem]  xl:px-[0.5rem] text-[0.6rem] px-[0.3rem]   rounded-[0.7rem]  text-center text-white bg-black">
                   <span> FEATURED</span>
                 </div>
               )}
             </div>
           </div>
-          <div className="text-black font-bold text-[1.4rem]">{position}</div>
-          <div className="flex gap-[1rem] items-center text-darkGrayishCyan text-[0.9rem]">
+          <div className="text-black font-bold xl:text-[1.4rem] lg:text-[1.1rem]">
+            {position}
+          </div>
+          <div className="flex xl:gap-[1rem] md:gap-[0.8rem] sm:gap-[1rem] gap-[0.6rem]  items-center text-darkGrayishCyan xl:text-[0.9rem] sm:text-[0.8rem] text-[0.7rem] ">
             <div>{postedAt}</div>
             <div className="  mb-[0.5rem]">.</div>
             <div>{contract}</div>
@@ -70,10 +70,12 @@ const Position: React.FC<PositionProps> = ({
           </div>
         </div>
       </div>
-      <div className="flex gap-3 mr-8">
+      <div className=" grid grid-cols-3  md:flex  gap-[0.5rem] md:gap-[0.5rem] lg:gap-[0.6rem] xl:gap-[1rem]  xl:pr-[2rem] md:pr-[1rem] ">
         {" "}
         {rightContent.map((value, index) => (
-          <Tabs closable={false} key={index}>{value}</Tabs>
+          <Tabs closable={false} key={index}>
+            {value}
+          </Tabs>
         ))}
       </div>
     </div>

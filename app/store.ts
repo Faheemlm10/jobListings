@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import jobData from "../data/data.json";
+
 interface Job {
   id: number;
   company: string;
@@ -19,8 +20,9 @@ interface Job {
 interface StoreState {
   data: Job[];
   activeTab: string[];
-  appendToActiveTab: (tab: string) => void; // Define the appendToActiveTab function in the interface
-  removeFromActiveTab: (tab:string) => void
+  appendToActiveTab: (tab: string) => void;
+  removeFromActiveTab: (tab: string) => void;
+  clearActiveTab: () => void; // Define the clearActiveTab function in the interface
 }
 
 const store = create<StoreState>((set) => ({
@@ -34,6 +36,10 @@ const store = create<StoreState>((set) => ({
       activeTab: state.activeTab.filter((item) => item !== tab),
     }));
   },
+  clearActiveTab: () => {
+    set({ activeTab: [] });
+  },
 }));
 
 export const useStore = store;
+
